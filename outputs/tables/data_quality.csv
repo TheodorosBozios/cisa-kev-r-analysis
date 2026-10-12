@@ -1,0 +1,11 @@
+"check","value"
+"Source records",1739
+"Source columns",12
+"Duplicate CVE identifiers",0
+"Duplicate source rows",0
+"Invalid CVE identifiers",0
+"Invalid dates",0
+"Negative scheduled remediation windows",0
+"Missing CWE mappings",175
+"Multiple CWE mappings",107
+"Unparsed non-empty CWE fields",0
