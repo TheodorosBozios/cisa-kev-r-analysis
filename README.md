@@ -18,9 +18,7 @@ One row = one vulnerability (unique CVE). The catalogue does **not** count attac
 **[Complete project ZIP (Google Drive)](https://drive.google.com/file/d/1qMtpMpvPkgWcObFXq6_u2vU6JJ1dmy7y/view?usp=sharing)**  
 Includes R scripts, figures (PNG/SVG), processed data, HTML report and raw KEV snapshot (~1.1 MB).
 
-
-
-Large raw/processed CSVs and chart images live in the ZIP. This GitHub repo focuses on code, documentation and summary tables.
+Large raw/processed CSVs and chart images live in the ZIP. This GitHub repository focuses on documentation and summary tables.
 
 ---
 
@@ -35,8 +33,8 @@ Large raw/processed CSVs and chart images live in the ZIP. This GitHub repo focu
 
 - **Microsoft** accounts for 389 entries (**22.37%** of the catalogue).
 - The top five vendors (Microsoft, Cisco, Apple, Adobe, Google) cover **42.61%** of entries.
-- **Unknown** ransomware status is kept as its own category it does not mean “not used in ransomware.”
-- Remediation windows are **CISA policy deadlines** not observed patch-completion times.
+- **Unknown** ransomware status is kept as its own category; it does not mean “not used in ransomware.”
+- Remediation windows are **CISA policy deadlines**, not observed patch-completion times.
 
 ## Skills demonstrated
 
@@ -53,27 +51,29 @@ Large raw/processed CSVs and chart images live in the ZIP. This GitHub repo focu
 ## Repository structure
 
 ```
-analysis.R                 Main pipeline (numbered steps + comments)
-R/helpers.R                Shared aggregation, export and chart helpers
-R/report.R                 Report generation from calculated results
 Cybersecurity_CISA_KEV.Rproj
 
-data/raw/                  Original CISA KEV CSV + source notes
-data/processed/            Cleaned table + CVE↔CWE mapping
-outputs/tables/            Metrics, distributions, quality checks
-outputs/figures/           8 charts (PNG + SVG) — in full ZIP
-reports/
-  analysis_report.md       Full write-up (GitHub-friendly)
-  analysis_report.html     Self-contained HTML report (in ZIP)
-  INTERPRETATION_GR.md     Findings explained in Greek
-  session_info.txt         R session for reproducibility
+data/
+  DATA_DICTIONARY.md       Analytical field definitions
+  raw/
+    SOURCE.md              Data provenance notes
+
+outputs/
+  tables/                  Summary metrics and quality checks
+    data_quality.csv
+    key_metrics.csv
+    ransomware_status.csv
+    vendors.csv
 ```
+
+Full analysis scripts, figures, processed datasets and the HTML report are available in the complete project ZIP linked above.
 
 ## How to reproduce
 
-1. Open `Cybersecurity_CISA_KEV.Rproj` in RStudio (or set the project root as working directory).  
-2. Install packages listed at the top of `analysis.R` if needed.  
-3. Run:
+1. Download the complete project ZIP and extract it.  
+2. Open `Cybersecurity_CISA_KEV.Rproj` in RStudio (or set the project root as working directory).  
+3. Install packages listed at the top of `analysis.R` if needed.  
+4. Run:
 
 ```r
 source("analysis.R")
@@ -90,11 +90,26 @@ Outputs are written under `outputs/` and `reports/`. The raw CSV in `data/raw/` 
 5. Expand multi-CWE fields to distinct CVE–CWE pairs.  
 6. Reconcile category totals to the source row count and export tables + figures.
 
-See `VALIDATION.md` for quality-check results and `data/raw/SOURCE.md` for provenance.
+See `data/raw/SOURCE.md` for provenance and `data/DATA_DICTIONARY.md` for field definitions.
+
+## Data quality summary
+
+| Check | Value |
+|-------|------:|
+| Source records | 1,739 |
+| Source columns | 12 |
+| Duplicate CVE identifiers | 0 |
+| Duplicate source rows | 0 |
+| Invalid CVE identifiers | 0 |
+| Invalid dates | 0 |
+| Negative scheduled remediation windows | 0 |
+| Missing CWE mappings | 175 |
+| Multiple CWE mappings | 107 |
+| Unparsed non-empty CWE fields | 0 |
 
 ## Important limitations
 
-- Representation in KEV reflects **known exploitation and CISA listing**, not product “quality” or installed base.  
+- Representation in KEV reflects **known exploitation and CISA listing**, not product quality or installed base.  
 - `dateAdded` is when CISA added the CVE—not discovery or first exploit date.  
 - Ransomware **Unknown ≠ No**.  
 - Remediation windows are policy intervals (`dueDate − dateAdded`), not measured MTTR.  
@@ -102,14 +117,12 @@ See `VALIDATION.md` for quality-check results and `data/raw/SOURCE.md` for prove
 ## Data source
 
 [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)  
-Public domain / U.S. government work. See `DATA_LICENSE.txt` and `data/raw/SOURCE.md`.
-
-
+Public domain / U.S. government work. See `data/raw/SOURCE.md`.
 
 **CISA KEV Analysis | R · Cybersecurity Analytics**  
-Analysed 1,739 actively exploited vulnerabilities from the CISA KEV catalogue: vendor/product concentration, ransomware linkage, CWE profiles, catalogue growth and remediation-window distributions with full data-quality checks and reproducible R reporting.
+Analysis of 1,739 actively exploited vulnerabilities from the CISA KEV catalogue: vendor/product concentration, ransomware linkage, CWE profiles, catalogue growth and remediation-window distributions with full data-quality checks and reproducible R reporting.
 
 ## License
 
 - **Code:** MIT (see `LICENSE`)  
-- **Data:** CISA / U.S. government public data (see `DATA_LICENSE.txt`)
+- **Data:** CISA / U.S. government public data
