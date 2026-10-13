@@ -35,7 +35,7 @@ Large raw/processed CSVs and chart images live in the ZIP. This GitHub repo focu
 
 - **Microsoft** accounts for 389 entries (**22.37%** of the catalogue).
 - The top five vendors (Microsoft, Cisco, Apple, Adobe, Google) cover **42.61%** of entries.
-- **Unknown** ransomware status is kept as its own category—it does not mean “not used in ransomware.”
+- **Unknown** ransomware status is kept as its own category it does not mean “not used in ransomware.”
 - Remediation windows are **CISA policy deadlines** not observed patch-completion times.
 
 ## Skills demonstrated
@@ -107,7 +107,7 @@ Public domain / U.S. government work. See `DATA_LICENSE.txt` and `data/raw/SOURC
 
 
 **CISA KEV Analysis | R · Cybersecurity Analytics**  
-Analysed 1,739 actively exploited vulnerabilities from the CISA KEV catalogue: vendor/product concentration, ransomware linkage, CWE profiles, catalogue growth and remediation-window distributions—with full data-quality checks and reproducible R reporting.
+Analysed 1,739 actively exploited vulnerabilities from the CISA KEV catalogue: vendor/product concentration, ransomware linkage, CWE profiles, catalogue growth and remediation-window distributions with full data-quality checks and reproducible R reporting.
 
 ## License
 
