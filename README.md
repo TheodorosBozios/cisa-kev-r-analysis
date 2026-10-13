@@ -1,8 +1,8 @@
-# CISA Known Exploited Vulnerabilities — Analysis in R
+# CISA Known Exploited Vulnerabilities Analysis in R
 
-Exploratory analysis of the **CISA Known Exploited Vulnerabilities (KEV)** catalogue using public cybersecurity data. The project profiles vendor and product representation, catalogue growth over time, documented ransomware use, CWE weakness categories, and scheduled remediation windows.
+Exploratory analysis of the **CISA Known Exploited Vulnerabilities (KEV)** catalogue using public cybersecurity data. The project profiles vendor and product representation, catalogue growth over time, documented ransomware use, CWE weakness categories and scheduled remediation windows.
 
-**Core question:** Which vendors, products and weakness types dominate a catalogue of *actively exploited* vulnerabilities—and what patterns matter for vulnerability-management prioritisation?
+**Core question:** Which vendors, products and weakness types dominate a catalogue of *actively exploited* vulnerabilities and what patterns matter for vulnerability management prioritisation?
 
 | Snapshot | Value |
 |----------|------:|
@@ -18,7 +18,7 @@ One row = one vulnerability (unique CVE). The catalogue does **not** count attac
 **[Complete project ZIP (Google Drive)](https://drive.google.com/file/d/1qMtpMpvPkgWcObFXq6_u2vU6JJ1dmy7y/view?usp=sharing)**  
 Includes R scripts, figures (PNG/SVG), processed data, HTML report and raw KEV snapshot (~1.1 MB).
 
-> If the link asks for access: Drive → Share → **Anyone with the link** → Viewer.
+
 
 Large raw/processed CSVs and chart images live in the ZIP. This GitHub repo focuses on code, documentation and summary tables.
 
@@ -36,7 +36,7 @@ Large raw/processed CSVs and chart images live in the ZIP. This GitHub repo focu
 - **Microsoft** accounts for 389 entries (**22.37%** of the catalogue).
 - The top five vendors (Microsoft, Cisco, Apple, Adobe, Google) cover **42.61%** of entries.
 - **Unknown** ransomware status is kept as its own category—it does not mean “not used in ransomware.”
-- Remediation windows are **CISA policy deadlines**, not observed patch-completion times.
+- Remediation windows are **CISA policy deadlines** not observed patch-completion times.
 
 ## Skills demonstrated
 
@@ -104,7 +104,7 @@ See `VALIDATION.md` for quality-check results and `data/raw/SOURCE.md` for prove
 [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)  
 Public domain / U.S. government work. See `DATA_LICENSE.txt` and `data/raw/SOURCE.md`.
 
-## Portfolio description (CV)
+
 
 **CISA KEV Analysis | R · Cybersecurity Analytics**  
 Analysed 1,739 actively exploited vulnerabilities from the CISA KEV catalogue: vendor/product concentration, ransomware linkage, CWE profiles, catalogue growth and remediation-window distributions—with full data-quality checks and reproducible R reporting.
